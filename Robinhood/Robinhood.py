@@ -13,6 +13,7 @@ from six.moves import input
 
 import getpass
 import requests
+import json
 import six
 import dateutil
 
@@ -151,6 +152,14 @@ class Robinhood:
     ###########################################################################
     #                               GET DATA
     ###########################################################################
+
+    def get_endpoint(self, endpoint=None):
+        res = self.session.get(self.endpoints[endpoint])
+        return json.loads(res.content.decode('utf-8'))
+
+    def get_custom_endpoint(self, endpoint=None):
+        res = self.session.get(endpoint)
+        return json.loads(res.content.decode('utf-8'))
 
     def investment_profile(self):
         """Fetch investment_profile """
