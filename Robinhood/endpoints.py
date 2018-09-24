@@ -1,5 +1,8 @@
-def login():
+def login2():
     return "https://api.robinhood.com/api-token-auth/"
+
+def login():
+    return "https://api.robinhood.com/oauth2/token/"
 
 def logout():
     return "https://api.robinhood.com/api-token-logout/"
